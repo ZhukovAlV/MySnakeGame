@@ -53,6 +53,8 @@ public class GameView extends View {
         bmSnake = Bitmap.createScaledBitmap(bmSnake, 14 * sizeElementMap, sizeElementMap, true);
         bmApple = BitmapFactory.decodeResource(getResources(), R.drawable.apple);
         bmApple = Bitmap.createScaledBitmap(bmApple, sizeElementMap, sizeElementMap, true);
+
+        // Создаем массив из травы в шахматном порядке
         for(int i = 0; i < h; i++){
             for (int j = 0; j < w; j++){
                 if((j + i) % 2 == 0){
@@ -68,7 +70,11 @@ public class GameView extends View {
 
     public void draw(Canvas canvas){
         super.draw(canvas);
+
+        // Добавим фон
         canvas.drawColor(0xFF065700);
+
+        // Добавим наше поле из травы
         for(int i = 0; i < arrGrass.size(); i++){
             canvas.drawBitmap(arrGrass.get(i).getBm(), arrGrass.get(i).getX(), arrGrass.get(i).getY(), null);
         }
